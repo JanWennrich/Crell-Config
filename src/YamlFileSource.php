@@ -17,4 +17,11 @@ readonly class YamlFileSource implements ConfigSource
         $filePath = $this->directory . '/' . $id . '.yaml';
         return file_exists($filePath) ? Yaml::parseFile($filePath) : [];
     }
+
+    public function write(string $id, array $configData): void
+    {
+        $filePath = $this->directory . '/' . $id . '.yaml';
+
+        file_put_contents($filePath, Yaml::dump($configData));
+    }
 }

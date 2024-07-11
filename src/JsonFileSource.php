@@ -22,4 +22,11 @@ readonly class JsonFileSource implements ConfigSource
             return [];
         }
     }
+
+    public function write(string $id, array $configData): void
+    {
+        $filePath = $this->directory . '/' . $id . '.json';
+
+        file_put_contents($filePath, json_encode($configData));
+    }
 }

@@ -10,4 +10,6 @@ interface ConfigSource
      * @return array<mixed, mixed>
      */
     public function load(string $id): array;
+
+    public function write(string $id, array $configData): void;
 }
